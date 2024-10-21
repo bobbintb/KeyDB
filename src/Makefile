@@ -20,7 +20,7 @@ release_hdr := $(shell sh -c './mkreleasehdr.sh')
 uname_S := $(shell sh -c 'uname -s 2>/dev/null || echo not')
 uname_M := $(shell sh -c 'uname -m 2>/dev/null || echo not')
 OPTIMIZATION?=-O2 -flto
-DEPENDENCY_TARGETS=linenoise lua hdr_histogram
+DEPENDENCY_TARGETS=linenoise hdr_histogram
 NODEPS:=clean distclean
 
 # Default settings
@@ -283,6 +283,14 @@ else
 	FINAL_CXXFLAGS+= -I../deps/concurrentqueue
 endif
 
+ifeq ($(USE_SYSTEM_LUA),yes)
+	FINAL_CFLAGS+= $(shell $(PKG_CONFIG) --cflags lua)
+	FINAL_CXXFLAGS+= $(shell $(PKG_CONFIG) --cflags lua)
+else
+	FINAL_CFLAGS+= -I../deps/lua/src
+	FINAL_CXXFLAGS+= -I../deps/lua/src
+endif
+
 # Determine systemd support and/or build preference (defaulting to auto-detection)
 BUILD_WITH_SYSTEMD=no
 LIBSYSTEMD_LIBS=-lsystemd
@@ -483,9 +491,13 @@ else
 endif
 	@touch $@
 
-# keydb-server
+ # keydb-server
 $(REDIS_SERVER_NAME): $(REDIS_SERVER_OBJ) $(KEYDB_SERVER_OBJ)
+ifeq ($(USE_SYSTEM_LUA),yes)
+	$(REDIS_LD) -o $@ $^ /usr/lib64/liblua.a $(FINAL_LIBS)
+else
 	$(REDIS_LD) -o $@ $^ ../deps/lua/src/liblua.a $(FINAL_LIBS)
+endif
 
 # keydb-sentinel
 $(REDIS_SENTINEL_NAME): $(REDIS_SERVER_NAME)
