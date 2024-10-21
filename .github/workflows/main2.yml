@@ -24,14 +24,14 @@ jobs:
         slackpkg install jemalloc infozip
         wget https://slackers.it/repository/slackware64-current/hiredis/hiredis-1.2.0-x86_64-1cf.txz
         # wget https://slackers.it/repository/slackware64-current/luarocks/luarocks-3.11.1-x86_64-1cf.txz
-        # wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
-        # installpkg *.tgz
+        wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
+        installpkg *.tgz
         installpkg *.txz
-        # mkdir /usr/include/lua5.1
-        # ln /usr/include/lua.h /usr/include/lua5.1/lua.h
-        # ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
-        # ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
-        # ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
+        mkdir /usr/include/lua5.1
+        ln /usr/include/lua.h /usr/include/lua5.1/lua.h
+        ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
+        ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
+        ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
         # luarocks install luarocks
         # luarocks install luabitop
         # luarocks install struct
@@ -42,8 +42,6 @@ jobs:
         git clone --depth 1 --branch v6.3.4 https://github.com/bobbintb/KeyDB.git
         cd KeyDB/
         git submodule init && git submodule update
-        wget https://raw.githubusercontent.com/redis/redis/unstable/deps/lua/src/lua_bit.c
-        mv lua_bit.c deps/lua/src/lua_bit.c
         cd src/
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
