@@ -32,6 +32,7 @@ jobs:
         ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
         ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
         ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
+        luarocks install lua-cjson
         # luarocks install luarocks
         # luarocks install luabitop
         # luarocks install struct
