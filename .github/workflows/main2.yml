@@ -54,4 +54,4 @@ jobs:
         wget https://slackware.uk/people/alien/multilib/current/slackware64-compat32/n-compat32/openssl-compat32-3.3.1-x86_64-1compat32.txz
         installpkg openssl-compat32-3.3.1-x86_64-1compat32.txz
         rm openssl-compat32-3.3.1-x86_64-1compat32.txz
-        make USE_SYSTEMD=no USE_SYSTEM_JEMALLOC=yes DEBUG=
+        make USE_SYSTEMD=no USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes DEBUG=
