@@ -28,7 +28,6 @@ jobs:
         installpkg *.tgz
         installpkg *.txz
         mkdir /usr/include/lua5.1
-        find / -name lua.h
         ln /usr/include/lua.h /usr/include/lua5.1/lua.h
         ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
         ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
@@ -37,14 +36,15 @@ jobs:
         luarocks install luabitop
         luarocks install struct
         luarocks install lua-cmsgpack
-        wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
-        installpkg openssl-3.3.2-x86_64-1.txz
     - name: Build
       run: |
         echo "================================= Downloading source code ================================="
         git clone --depth 1 --branch v6.3.4 https://github.com/bobbintb/KeyDB.git
         cd KeyDB/
         git submodule init && git submodule update
+        wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
+        installpkg openssl-3.3.2-x86_64-1.txz
+        rm openssl-3.3.2-x86_64-1.txz
         cd src/
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
