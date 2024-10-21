@@ -45,10 +45,10 @@ jobs:
         cd src/
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
-        wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/sdscompat.h
+        # wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/sdscompat.h
         cd ..
-        rm ./deps/hiredis/sdscompat.h
-        cp ./src/sdscompat.h /usr/include/hiredis/sdscompat.h
+        # rm ./deps/hiredis/sdscompat.h
+        # cp ./src/sdscompat.h /usr/include/hiredis/sdscompat.h
         echo "================================= Building ================================="
         # wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
         wget https://slackware.uk/people/alien/multilib/current/slackware64-compat32/n-compat32/openssl-compat32-3.3.1-x86_64-1compat32.txz
