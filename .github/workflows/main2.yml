@@ -26,6 +26,7 @@ jobs:
         wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
         wget https://slackers.it/repository/slackware64-current/luarocks/luarocks-3.11.1-x86_64-1cf.txz
         wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
+        installpkg *.tgz
         mkdir /usr/include/lua5.1
         find / -name lua.h
         ln /usr/include/lua.h /usr/include/lua5.1/lua.h
@@ -37,7 +38,6 @@ jobs:
         luarocks install struct
         luarocks install lua-cmsgpack
         installpkg *.txz
-        installpkg *.tgz
     - name: Build
       run: |
         echo "================================= Downloading source code ================================="
