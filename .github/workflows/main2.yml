@@ -23,19 +23,19 @@ jobs:
         slackpkg update <<< y
         slackpkg install jemalloc infozip
         wget https://slackers.it/repository/slackware64-current/hiredis/hiredis-1.2.0-x86_64-1cf.txz
-        wget https://slackers.it/repository/slackware64-current/luarocks/luarocks-3.11.1-x86_64-1cf.txz
-        wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
+        # wget https://slackers.it/repository/slackware64-current/luarocks/luarocks-3.11.1-x86_64-1cf.txz
+        # wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
         installpkg *.tgz
         installpkg *.txz
-        mkdir /usr/include/lua5.1
-        ln /usr/include/lua.h /usr/include/lua5.1/lua.h
-        ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
-        ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
-        ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
-        luarocks install luarocks
-        luarocks install luabitop
-        luarocks install struct
-        luarocks install lua-cmsgpack
+        # mkdir /usr/include/lua5.1
+        # ln /usr/include/lua.h /usr/include/lua5.1/lua.h
+        # ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
+        # ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
+        # ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
+        # luarocks install luarocks
+        # luarocks install luabitop
+        # luarocks install struct
+        # luarocks install lua-cmsgpack
     - name: Build
       run: |
         echo "================================= Downloading source code ================================="
@@ -54,4 +54,4 @@ jobs:
         wget https://slackware.uk/people/alien/multilib/current/slackware64-compat32/n-compat32/openssl-compat32-3.3.1-x86_64-1compat32.txz
         installpkg openssl-compat32-3.3.1-x86_64-1compat32.txz
         rm openssl-compat32-3.3.1-x86_64-1compat32.txz
-        make USE_SYSTEMD=no USE_SYSTEM_HIREDIS=yes USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes DEBUG=
+        make USE_SYSTEMD=no USE_SYSTEM_JEMALLOC=yes DEBUG=
