@@ -459,6 +459,7 @@ persist-settings: distclean
 	echo WARN=$(WARN) >> .make-settings
 	echo OPT=$(OPT) >> .make-settings
 	echo USE_SYSTEM_CONCURRENTQUEUE=$(USE_SYSTEM_CONCURRENTQUEUE) >> .make-settings
+	echo USE_SYSTEM_LUA=$(USE_SYSTEM_LUA) >> .make-settings
 	echo MALLOC=$(MALLOC) >> .make-settings
 	echo USE_SYSTEM_JEMALLOC=$(USE_SYSTEM_JEMALLOC) >> .make-settings
 	echo BUILD_TLS=$(BUILD_TLS) >> .make-settings
