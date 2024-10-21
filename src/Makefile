@@ -274,8 +274,8 @@ ifdef OPENSSL_PREFIX
 endif
 
 # Include paths to dependencies
-FINAL_CFLAGS+= -I../deps/linenoise -I../deps/lua/src -I../deps/hdr_histogram
-FINAL_CXXFLAGS+= -I../deps/linenoise -I../deps/lua/src -I../deps/hdr_histogram
+FINAL_CFLAGS+= -I../deps/linenoise -I../deps/hdr_histogram
+FINAL_CXXFLAGS+= -I../deps/linenoise -I../deps/hdr_histogram
 
 ifeq ($(USE_SYSTEM_CONCURRENTQUEUE),yes)
 	FINAL_CXXFLAGS+= -I/usr/include/concurrentqueue/moodycamel
