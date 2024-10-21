@@ -42,9 +42,6 @@ jobs:
         git clone --depth 1 --branch v6.3.4 https://github.com/bobbintb/KeyDB.git
         cd KeyDB/
         git submodule init && git submodule update
-        wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
-        installpkg openssl-3.3.2-x86_64-1.txz
-        rm openssl-3.3.2-x86_64-1.txz
         cd src/
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
@@ -53,4 +50,7 @@ jobs:
         rm ./deps/hiredis/sdscompat.h
         cp ./src/sdscompat.h /usr/include/hiredis/sdscompat.h
         echo "================================= Building ================================="
+        wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
+        installpkg openssl-3.3.2-x86_64-1.txz
+        rm openssl-3.3.2-x86_64-1.txz
         make USE_SYSTEMD=no USE_SYSTEM_HIREDIS=yes USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes DEBUG=
