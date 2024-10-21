@@ -36,5 +36,7 @@ jobs:
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
         cd ..
+        ln ./deps/hiredis/sdscompat.h ./src/sdscompat.h
+        ln ./deps/hiredis/sdscompat.h /usr/include/hiredis/sdscompat.h
         echo "================================= Building ================================="
         make USE_SYSTEMD=no USE_SYSTEM_HIREDIS=yes USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes DEBUG=
