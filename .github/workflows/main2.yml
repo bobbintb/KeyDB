@@ -42,6 +42,8 @@ jobs:
         git clone --depth 1 --branch v6.3.4 https://github.com/bobbintb/KeyDB.git
         cd KeyDB/
         git submodule init && git submodule update
+        wget https://raw.githubusercontent.com/redis/redis/unstable/deps/lua/src/lua_bit.c
+        mv lua_bit.c deps/lua/src/lua_bit.c
         cd src/
         rm Makefile
         wget https://raw.githubusercontent.com/bobbintb/KeyDB/refs/heads/main/src/Makefile
