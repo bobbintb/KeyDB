@@ -25,6 +25,7 @@ jobs:
         wget https://slackers.it/repository/slackware64-current/hiredis/hiredis-1.2.0-x86_64-1cf.txz
         wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
         installpkg *.txz
+        installpkg *.tgz
     - name: Build
       run: |
         echo "================================= Downloading source code ================================="
