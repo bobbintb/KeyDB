@@ -50,7 +50,8 @@ jobs:
         rm ./deps/hiredis/sdscompat.h
         cp ./src/sdscompat.h /usr/include/hiredis/sdscompat.h
         echo "================================= Building ================================="
-        wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
-        installpkg openssl-3.3.2-x86_64-1.txz
-        rm openssl-3.3.2-x86_64-1.txz
+        # wget https://slackware.uk/slackware/slackware64-current/slackware64/n/openssl-3.3.2-x86_64-1.txz
+        wget https://slackware.uk/people/alien/multilib/current/slackware64-compat32/n-compat32/openssl-compat32-3.3.1-x86_64-1compat32.txz
+        installpkg openssl-compat32-3.3.1-x86_64-1compat32.txz
+        rm openssl-compat32-3.3.1-x86_64-1compat32.txz
         make USE_SYSTEMD=no USE_SYSTEM_HIREDIS=yes USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes DEBUG=
