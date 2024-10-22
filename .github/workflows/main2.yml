@@ -38,7 +38,7 @@ jobs:
         # luarocks install luabitop
         # luarocks install struct
         # luarocks install lua-cmsgpack
-        wget -P /var/cache/sbopkg https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz
+        wget -P /var/cache/sbopkg https://www.kyne.au/~mark/software/download/lua-cjson-2.1.0.tar.gz
         sbopkg -r
         yes p | sbopkg -i lua-cjson
     - name: Build
