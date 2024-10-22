@@ -25,6 +25,7 @@ jobs:
         wget https://slackers.it/repository/slackware64-current/hiredis/hiredis-1.2.0-x86_64-1cf.txz
         wget https://slackers.it/repository/slackware64-current/luarocks/luarocks-3.11.1-x86_64-1cf.txz
         wget https://slackware.uk/people/alien/sbrepos/15.0/x86_64/lua/lua-5.1.5-x86_64-3alien.tgz
+        wget https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz
         installpkg *.tgz
         installpkg *.txz
         mkdir /usr/include/lua5.1
@@ -32,11 +33,14 @@ jobs:
         ln /usr/include/lua.hpp /usr/include/lua5.1/lua.hpp
         ln /usr/include/luaconf.h /usr/include/lua5.1/luaconf.h
         ln /usr/include/lualib.h /usr/include/lua5.1/lualib.h
-        luarocks install lua-cjson
+        # luarocks install lua-cjson
         # luarocks install luarocks
         # luarocks install luabitop
         # luarocks install struct
         # luarocks install lua-cmsgpack
+        wget -P /var/cache/sbopkg https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz
+        sbopkg -r
+        yes p | sbopkg -i lua-cjson
     - name: Build
       run: |
         echo "================================= Downloading source code ================================="
