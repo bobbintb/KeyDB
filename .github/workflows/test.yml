@@ -14,8 +14,8 @@ jobs:
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
-        sudo apt upgrade -y
-        sudo apt install -y tree debhelper libsystemd-dev pkg-config pbuilder build-essential nasm autotools-dev autoconf libjemalloc-dev tcl tcl-dev uuid-dev libcurl4-openssl-dev libbz2-dev libzstd-dev liblz4-dev libsnappy-dev libssl-dev
+        sudo apt upgrade --fix-missing -y
+        sudo apt install --fix-missing -y tree debhelper libsystemd-dev pkg-config pbuilder build-essential nasm autotools-dev autoconf libjemalloc-dev tcl tcl-dev uuid-dev libcurl4-openssl-dev libbz2-dev libzstd-dev liblz4-dev libsnappy-dev libssl-dev
         echo "=========================openssl version================================"
         openssl version
     - name: Build
